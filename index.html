@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Cutie Thanu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        @keyframes confetti {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            top: -10px;
+            animation: confetti 3s linear infinite;
+        }
+        
+        @keyframes floatText {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        .floating-text {
+            display: inline-block;
+            animation: floatText 3s ease-in-out infinite;
+        }
+        
+        .stylish-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center h-screen">
+    <div class="text-center fade-in">
+        <h1 class="text-5xl font-bold text-white floating-text">🎉 Happy Birthday Cutie Thanu! 🎉</h1>
+        <p class="text-xl text-white mt-4">Wish you the best of your future and happiness! 💖</p>
+        <p class="stylish-text">Happy Birthday Thanu Shree! 🎂🎁 May your day be filled with love, joy, and endless smiles! ✨</p>
+    </div>
+
+    <script>
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+        createConfetti();
+        setInterval(createConfetti, 3000);
+    </script>
+</body>
+
+</html>
